@@ -1,0 +1,57 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <StartupObject>MyApplication.Core.Program</StartupObject>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Avalonia" Version="11.3.10" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\ChessController\ChessController.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="ChessAssets\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="ChessAssets\ChessAssets\BishopB.png" />
+      <Resource Include="ChessAssets\ChessAssets\BishopB.png" />
+      <None Remove="ChessAssets\ChessAssets\BishopW.png" />
+      <Resource Include="ChessAssets\ChessAssets\BishopW.png" />
+      <None Remove="ChessAssets\ChessAssets\Board.png" />
+      <Resource Include="ChessAssets\ChessAssets\Board.png" />
+      <None Remove="ChessAssets\ChessAssets\CursorB.cur" />
+      <Resource Include="ChessAssets\ChessAssets\CursorB.cur" />
+      <None Remove="ChessAssets\ChessAssets\CursorW.cur" />
+      <Resource Include="ChessAssets\ChessAssets\CursorW.cur" />
+      <None Remove="ChessAssets\ChessAssets\icon.ico" />
+      <Resource Include="ChessAssets\ChessAssets\icon.ico" />
+      <None Remove="ChessAssets\ChessAssets\KingB.png" />
+      <Resource Include="ChessAssets\ChessAssets\KingB.png" />
+      <None Remove="ChessAssets\ChessAssets\KingW.png" />
+      <Resource Include="ChessAssets\ChessAssets\KingW.png" />
+      <None Remove="ChessAssets\ChessAssets\KnightB.png" />
+      <Resource Include="ChessAssets\ChessAssets\KnightB.png" />
+      <None Remove="ChessAssets\ChessAssets\KnightW.png" />
+      <Resource Include="ChessAssets\ChessAssets\KnightW.png" />
+      <None Remove="ChessAssets\ChessAssets\PawnB.png" />
+      <Resource Include="ChessAssets\ChessAssets\PawnB.png" />
+      <None Remove="ChessAssets\ChessAssets\PawnW.png" />
+      <Resource Include="ChessAssets\ChessAssets\PawnW.png" />
+      <None Remove="ChessAssets\ChessAssets\QueenB.png" />
+      <Resource Include="ChessAssets\ChessAssets\QueenB.png" />
+      <None Remove="ChessAssets\ChessAssets\QueenW.png" />
+      <Resource Include="ChessAssets\ChessAssets\QueenW.png" />
+      <None Remove="ChessAssets\ChessAssets\RookB.png" />
+      <Resource Include="ChessAssets\ChessAssets\RookB.png" />
+      <None Remove="ChessAssets\ChessAssets\RookW.png" />
+      <Resource Include="ChessAssets\ChessAssets\RookW.png" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,6 @@
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/ChessUI.csproj.AssemblyReference.cache
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/Avalonia/Resources.Inputs.cache
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/ChessUI.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/ChessUI.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/ChessUI.AssemblyInfo.cs
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessUI/obj/Debug/net10.0/ChessUI.csproj.CoreCompileInputs.cache

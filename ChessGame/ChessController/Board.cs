@@ -53,4 +53,15 @@ public class Board
         this[7, 6] = new Knight(Player.White);
         this[7, 7] = new Rook(Player.White);
     }
+    
+    public static bool isInside(Position position)
+    {
+        return position.Row >= 0 && position.Column >= 0 && position.Column < 8;
+    }
+    
+    public bool isEmpty(Position position)
+    {
+        return this[position] == null;
+    }
+    
 }

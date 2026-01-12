@@ -1,0 +1,11 @@
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/bin/Debug/net10.0/ChessController.deps.json
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/bin/Debug/net10.0/ChessController.dll
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/bin/Debug/net10.0/ChessController.pdb
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.GeneratedMSBuildEditorConfig.editorconfig
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.AssemblyInfoInputs.cache
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.AssemblyInfo.cs
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.csproj.CoreCompileInputs.cache
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.dll
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/refint/ChessController.dll
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ChessController.pdb
+/Users/user/RiderProjects/Chess-Game/ChessGame/ChessController/obj/Debug/net10.0/ref/ChessController.dll
