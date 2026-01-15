@@ -3,17 +3,17 @@ namespace ChessController;
 public class Knight : Piece
 {
     public override PieceType Type => PieceType.Knight;
-    public override Player Color { get; }
+    public override Player Colour { get; }
     
-    public Knight(Player color)
+    public Knight(Player colour)
     {
-        Color = color;
+        Colour = colour;
     }
     
     
     public override Piece Copy()
     {
-        Knight copy = new Knight(Color);
+        Knight copy = new Knight(Colour);
         copy.HasMoved= HasMoved;
         return copy;
     }

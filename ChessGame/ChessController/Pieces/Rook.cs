@@ -3,17 +3,17 @@ namespace ChessController;
 public class Rook : Piece
 {
     public override PieceType Type => PieceType.Rook;
-    public override Player Color { get; }
+    public override Player Colour { get; }
     
-    public Rook(Player color)
+    public Rook(Player colour)
     {
-        Color = color;
+        Colour = colour;
     }
     
     
     public override Piece Copy()
     {
-        Rook copy = new Rook(Color);
+        Rook copy = new Rook(Colour);
         copy.HasMoved= HasMoved;
         return copy;
     }

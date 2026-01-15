@@ -4,17 +4,17 @@ namespace ChessController;
 public class Pawn : Piece
 {
     public override PieceType Type => PieceType.Pawn;
-    public override Player Color { get; }
+    public override Player Colour { get; }
 
-    public Pawn(Player color)
+    public Pawn(Player colour)
     {
-        Color = color;
+        Colour = colour;
         
     }
 
     public override Piece Copy()
     {
-        Pawn copy = new Pawn(Color);
+        Pawn copy = new Pawn(Colour);
         copy.HasMoved = HasMoved;
         return copy;
     }
