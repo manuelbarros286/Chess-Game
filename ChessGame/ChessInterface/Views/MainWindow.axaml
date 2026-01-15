@@ -7,17 +7,23 @@
         x:Class="ChessInterface.Views.MainWindow"
         x:DataType="vm:MainWindowViewModel"
         Icon="/Assets/ChessAssets/icon.ico"
-        Title="ChessInterface">
+        Title="Chess Game"
+        Width="600" SizeToContent="Height"
+        WindowStartupLocation="CenterScreen"
+        Background="Black"
+        >
 
-    <!-- <Design.DataContext> -->
-        <!-- This only sets the DataContext for the previewer in an IDE,
-             to set the actual DataContext for runtime, set the DataContext property in code (look at App.axaml.cs) -->
-        <!-- <vm:MainWindowViewModel/> -->
-    <!-- </Design.DataContext> -->
-
-    <Grid>
-            <Image Source="/Assets/ChessAssets/Board.png" />
-    </Grid>
-    <!-- <TextBlock Text="{Binding Greeting}" HorizontalAlignment="Center" VerticalAlignment="Center"/> -->
+    <Viewbox>
+        <Grid x:Name="MainGrid"
+              Width="600" 
+              Height="600">
+                <Image Source="/Assets/ChessAssets/Board.png" />
+                <UniformGrid x:Name="PieceGrid"
+                             Rows="8"
+                             Columns="8"
+                             >
+                </UniformGrid>
+        </Grid>
+    </Viewbox>
 
 </Window>
