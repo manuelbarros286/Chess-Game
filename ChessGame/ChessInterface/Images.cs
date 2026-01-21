@@ -30,7 +30,7 @@ public static class Images
         { PieceType.King, LoadImage("/Assets/ChessAssets/KingB.png") },
     };
     private static IImage LoadImage(string filePath)
-    {
+    {// look this up in Avalonia documentation
         return new Bitmap((new Uri(filePath, UriKind.Relative)));
     }
 
@@ -44,7 +44,7 @@ public static class Images
         };
     }
     
-    public static IImageBrushSource GetImage(Piece piece)
+    public static IImage GetImage(Piece piece)
     {
         if (piece == null)
         {
