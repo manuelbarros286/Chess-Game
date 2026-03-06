@@ -21,9 +21,9 @@
                 <UniformGrid x:Name="PieceGrid"
                              Rows="8"
                              Columns="8"
-                             >
+                             RenderOptions.BitmapInterpolationMode="HighQuality">
                 </UniformGrid>
         </Grid>
     </Viewbox>
 
-</Window>
+</Window> 

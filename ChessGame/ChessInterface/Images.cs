@@ -1,9 +1,8 @@
 using System;
 using Avalonia.Media;
-
 using System.Collections.Generic;
-using Avalonia.Media;
 using Avalonia.Media.Imaging;
+using Avalonia.Platform;
 using ChessController;
 namespace ChessInterface;
 
@@ -29,9 +28,10 @@ public static class Images
         { PieceType.Queen, LoadImage("/Assets/ChessAssets/QueenB.png") },
         { PieceType.King, LoadImage("/Assets/ChessAssets/KingB.png") },
     };
-    private static IImage LoadImage(string filePath)
+    private static Bitmap LoadImage(string filePath)
     {// look this up in Avalonia documentation
-        return new Bitmap((new Uri(filePath, UriKind.Relative)));
+        var uri = new Uri($"avares://ChessInterface{filePath}");
+        return new Bitmap(AssetLoader.Open(uri));
     }
 
     public static IImage GetImage(Player colour, PieceType type)

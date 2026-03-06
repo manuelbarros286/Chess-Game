@@ -15,6 +15,7 @@ public partial class MainWindow : Window
         InitialiseBoard();
 
         gameState = new GameState(Player.White, Board.Initial());
+        DrawBoard(gameState.Board);
     }
     
     private void InitialiseBoard()
