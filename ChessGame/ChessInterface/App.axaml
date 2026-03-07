@@ -11,5 +11,40 @@
   
     <Application.Styles>
         <FluentTheme />
+        <Style Selector="Border.BorderStyle">
+            <Setter Property="BorderThickness" Value="4"/>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeColour}"/>
+            <Setter Property="Background" Value="{StaticResource FillColour}"/>
+            <Setter Property="CornerRadius" Value="10"/>
+        </Style>
+        
+        <Style Selector="TextBlock" x:Key="TextStyle">
+            <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
+            <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+            <Setter Property="VerticalAlignment" Value="Center"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource TextColour}"></Setter>
+        </Style>
+        
+        <Style Selector="Button" x:Key="ButtonStyle">
+            <Setter Property="FontFamily" Value="Segoe UI Light"></Setter>
+            <Setter Property="FontSize" Value="14"></Setter>
+            <Setter Property="BorderThickness" Value="2"></Setter>
+            <Setter Property="BorderBrush" Value="{StaticResource StrokeColour}"></Setter>
+            <Setter Property="Background" Value="{StaticResource ButtonColour}"></Setter>
+            <Setter Property="Foreground" Value="{StaticResource TextColour}"></Setter>
+            <Style.Resources>
+                <Style Selector="Border">
+                    <Setter Property="CornerRadius" Value="5"></Setter>
+                </Style>
+            </Style.Resources>
+        </Style>
     </Application.Styles>
+             
+    <Application.Resources>
+        <SolidColorBrush x:Key="StrokeColour"> #260000</SolidColorBrush>
+        <SolidColorBrush x:Key="FillColour"> #cc380404</SolidColorBrush>
+        <SolidColorBrush x:Key="TextColour">#ffa274</SolidColorBrush>
+        <SolidColorBrush x:Key="ButtonColour">#730909</SolidColorBrush>
+
+    </Application.Resources>
 </Application>
