@@ -64,4 +64,45 @@ public class Board
         return this[position] == null;
     }
     
+    public IEnumerable<Position> GetAllPiecePositions()
+    {
+        for (int row = 0; row < 8; row++)
+        {
+            for (int col = 0; col < 8; col++)
+            {
+                
+                Position position = new Position(row, col);
+                if (!isEmpty(position))
+                {
+                    yield return position;
+                }
+            }
+        }
+    }
+    
+    public IEnumerable<Position> GetAllPiecePositionsForPlayer(Player player)
+    {
+        return GetAllPiecePositions().Where(pos => this[pos].Colour == player);
+    }
+    
+    public bool IsInCheck(Player player)
+    {
+        //find if any of the opponent's pieces can capture the player's king
+        return GetAllPiecePositionsForPlayer(player.Opponent()).Any(pos =>
+        {
+            Piece piece = this[pos];
+            return piece.CanCaptureOpponentKing(pos, this);
+        });
+    }
+
+    public Board Copy()
+    {
+        Board copy = new Board();
+        foreach(Position pos in GetAllPiecePositions())
+        {
+            copy[pos] = this[pos].Copy();
+        }
+        return copy;
+    }
+
 }
