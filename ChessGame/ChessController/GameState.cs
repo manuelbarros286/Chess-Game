@@ -7,6 +7,7 @@ public class GameState
     //store board configuration
     public Board Board { get; }
     public Player CurrentPlayer { get; private set; }
+    public Result Result { get; private set; } = null;
 
     public GameState(Player player, Board board)
     {
@@ -32,5 +33,36 @@ public class GameState
     {
         move.Execute(Board);
         CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
+        CheckForGameEnd();
+    }
+    
+    public IEnumerable<Move> AllLegalMovesForPlayer(Player player)
+    {
+        IEnumerable<Move> moveCandidates = Board.GetAllPiecePositionsForPlayer(player).SelectMany(pos =>
+        {
+            Piece piece = Board[pos];
+            return piece.GetMoves(pos, Board);
+        });
+        return moveCandidates.Where(move => move.IsLegal(Board)); 
+    }
+    
+    private void CheckForGameEnd()
+    {
+        if (!AllLegalMovesForPlayer(CurrentPlayer).Any())
+        {
+            if (Board.IsInCheck(CurrentPlayer))
+            {
+                Result = Result.Win(CurrentPlayer.Opponent());
+            }
+            else
+            {
+                Result = Result.Draw(GameEndReason.Stalemate);
+            }
+        }
+    }
+    
+    public bool IsGameOver()
+    {
+        return Result != null;
     }
 }
