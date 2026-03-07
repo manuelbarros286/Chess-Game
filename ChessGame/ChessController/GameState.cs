@@ -20,10 +20,12 @@ public class GameState
         {
             return Enumerable.Empty<Move>();
         }
-
+        
         Piece piece = Board[pos];
         //passing piece position to GetMoves to determine legal moves for that piece
-        return piece.GetMoves(pos, Board);
+        IEnumerable<Move> moveCandidates= piece.GetMoves(pos, Board);
+        //only return moves that are legal (won't put own king in check)
+        return moveCandidates.Where(move => move.IsLegal(Board));
     }
     
     public void MakeMove(Move move)
