@@ -31,6 +31,10 @@
                              Columns="8"
                              RenderOptions.BitmapInterpolationMode="HighQuality">
                 </UniformGrid>
+                
+                <ContentControl x:Name="MenuContainer">
+                    
+                </ContentControl>
         </Grid>
     </Viewbox>
 

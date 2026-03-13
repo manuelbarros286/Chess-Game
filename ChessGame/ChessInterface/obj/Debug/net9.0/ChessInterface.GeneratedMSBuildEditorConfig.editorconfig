@@ -26,5 +26,8 @@ build_property.EnableCodeStyleSeverity =
 [/Users/user/RiderProjects/Chess-Game/ChessGame/ChessInterface/App.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
 
+[/Users/user/RiderProjects/Chess-Game/ChessGame/ChessInterface/GameOverMenu.axaml]
+build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml
+
 [/Users/user/RiderProjects/Chess-Game/ChessGame/ChessInterface/Views/MainWindow.axaml]
 build_metadata.AdditionalFiles.SourceItemGroup = AvaloniaXaml

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Avalonia;
 using Avalonia.Controls;
+using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Controls.Shapes;
 using Avalonia.Input;
 using Avalonia.Media;
@@ -67,6 +68,11 @@ public partial class MainWindow : Window
     }
     private void BoardGrid_PointerPressed(object sender, PointerPressedEventArgs e)
     {
+        if (IsMenuOnScreen())
+        {
+            return;
+        }
+        
         Point point = e.GetPosition(BoardGrid);
         Position position = ToSquarePosition(point);
         if (selectedPosition == null)
@@ -105,6 +111,11 @@ public partial class MainWindow : Window
         gameState.MakeMove(move);
         DrawBoard(gameState.Board);
         SetCursor(gameState.CurrentPlayer);
+        
+        if(gameState.IsGameOver())
+        {
+            ShowGameOver();
+        }
     }
     
     private void CacheMoves(IEnumerable<Move> moves)
@@ -144,4 +155,44 @@ public partial class MainWindow : Window
             Cursor = MouseCursors.BlackCursor;
         }
     }
+
+    private bool IsMenuOnScreen()
+    {
+        return MenuContainer.Content != null;
+    }
+    
+    private void ShowGameOver()
+    {
+        GameOverMenu gameOverMenu = new GameOverMenu(gameState);
+        MenuContainer.Content = gameOverMenu;
+
+        gameOverMenu.OptionSelected += option =>
+        {
+            if (option == Option.Restart)
+            {
+                MenuContainer.Content = null;
+                RestartGame();
+            }
+            else
+            {
+                if (Application.Current?.ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
+                {
+                    desktop.Shutdown();
+                }
+            }
+        };
+    }
+    
+    private void RestartGame()
+    {
+        HideHighlights();
+        moveCache.Clear();
+        gameState = new GameState(Player.White, Board.Initial());
+        DrawBoard(gameState.Board);
+        SetCursor(gameState.CurrentPlayer);
+    }
+    
+    
+    
+    
 }
