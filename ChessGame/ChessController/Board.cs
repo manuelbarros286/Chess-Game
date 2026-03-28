@@ -54,12 +54,12 @@ public class Board
         this[7, 7] = new Rook(Player.White);
     }
     
-    public static bool isInside(Position position)
+    public static bool IsInside(Position position)
     {
-        return position.Row >= 0 && position.Column >= 0 && position.Column < 8;
+        return position.Row >= 0 && position.Row <8 && position.Column >= 0 && position.Column < 8; 
     }
     
-    public bool isEmpty(Position position)
+    public bool IsEmpty(Position position)
     {
         return this[position] == null;
     }
@@ -72,7 +72,7 @@ public class Board
             {
                 
                 Position position = new Position(row, col);
-                if (!isEmpty(position))
+                if (!IsEmpty(position))
                 {
                     yield return position;
                 }

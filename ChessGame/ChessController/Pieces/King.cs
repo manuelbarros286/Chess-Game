@@ -35,7 +35,7 @@ public class King : Piece
         foreach (Direction dir in dirs)
         {
             Position to = from + dir;
-            if (Board.isInside(to) && (board.isEmpty(to) || board[to].Colour != Colour))
+            if (Board.IsInside(to) && (board.IsEmpty(to) || board[to].Colour != Colour))
             {
                 yield return to;
             }

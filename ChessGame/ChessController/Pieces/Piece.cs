@@ -11,9 +11,9 @@ public abstract class Piece
 
     protected IEnumerable<Position> MovePositionsInDir(Position from, Board board, Direction dir)
     {
-        for (Position pos = from + dir; Board.isInside(pos); pos += dir)
+        for (Position pos = from + dir; Board.IsInside(pos); pos += dir)
         {
-            if (board.isEmpty(pos))
+            if (board.IsEmpty(pos))
             {
                 yield return pos;
                 continue;

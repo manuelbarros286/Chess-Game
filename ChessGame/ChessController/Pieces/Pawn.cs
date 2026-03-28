@@ -23,14 +23,23 @@ public class Pawn : Piece
     
     private static bool CanMoveTo(Position pos, Board board)
     {
-        return Board.isInside(pos) && board.isEmpty(pos);
+        return Board.IsInside(pos) && board.IsEmpty(pos);
     }
     
     //define pawn being able to capture diagonally
     private bool CanCaptureAt(Position pos, Board board)
     {
-        if (!Board.isInside(pos) || board.isEmpty(pos)) return false;
+        if (!Board.IsInside(pos) || board.IsEmpty(pos)) return false;
         return board[pos].Colour != Colour;
+    }
+
+    private static IEnumerable<Move> PromotionMoves(Position from, Position to)
+    {
+        yield return new PawnPromotion(from, to, PieceType.Knight);
+        yield return new PawnPromotion(from, to, PieceType.Bishop);
+        yield return new PawnPromotion(from, to, PieceType.Rook);
+        yield return new PawnPromotion(from, to, PieceType.Queen);
+        
     }
     
     private IEnumerable<Move> ForwardMoves(Position from, Board board)
@@ -38,7 +47,18 @@ public class Pawn : Piece
         Position oneMovePosition = from + forward;
         if (CanMoveTo(oneMovePosition, board))
         {
-            yield return new NormalMove(from, oneMovePosition);
+            if (oneMovePosition.Row == 0 || oneMovePosition.Row == 7)
+            {
+                foreach (Move promotionMove in PromotionMoves(from, oneMovePosition))
+                {
+                    yield return promotionMove;
+                }
+            }
+            else
+            {                
+                yield return new NormalMove(from, oneMovePosition);
+            }
+            
             //enable two square move if the pawn hasn't moved yet and is empty
             Position twoMovesPosition = oneMovePosition + forward;
             if (!HasMoved && CanMoveTo(twoMovesPosition, board))
@@ -56,7 +76,17 @@ public class Pawn : Piece
             Position to = from + forward + dir;
             if (CanCaptureAt(to, board))
             {
-                yield return new NormalMove(from, to);
+                if (to.Row == 0 || to.Row == 7)
+                {
+                    foreach (Move promotionMove in PromotionMoves(from, to))
+                    {
+                        yield return promotionMove;
+                    }
+                }
+                else
+                {                
+                    yield return new NormalMove(from, to);
+                }            
             }
         }
     }
