@@ -1,0 +1,47 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ChessInterface.PromotionMenu">
+
+    <Border Width="275" Height="125" Classes="BorderStyle">
+        <Grid RenderOptions.BitmapInterpolationMode="HighQuality">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="1.5*"></RowDefinition>
+            </Grid.RowDefinitions>
+             
+            <TextBlock Grid.ColumnSpan="4" x:Name="PromotionText"
+                       Text="PROMOTE TO:"
+                       Classes="TextStyle"
+                       FontSize="28">
+            </TextBlock>
+            <UniformGrid Grid.Row="1"
+                                        Rows="1"
+                                        Columns="4"
+                                        Cursor="Hand">
+                <Image x:Name="QueenImage"
+                       PointerPressed="QueenImage_PointerPressed"
+                       Source="Assets/ChessAssets/QueenW.png" />
+                <Image x:Name="BishopImage"
+                       PointerPressed="BishopImage_PointerPressed"
+                       Source="Assets/ChessAssets/BishopW.png" />
+                <Image x:Name="RookImage"
+                       PointerPressed="RookImage_PointerPressed"
+                       Source="Assets/ChessAssets/RookW.png" />
+                <Image x:Name="KnightImage"
+                       PointerPressed="KnightImage_PointerPressed"
+                       Source="Assets/ChessAssets/KnightW.png" />
+
+            </UniformGrid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+        </Grid>
+    </Border>
+</UserControl>

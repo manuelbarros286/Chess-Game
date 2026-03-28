@@ -1,0 +1,45 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="ChessInterface.GameOverMenu">
+
+    <Border Width="450" Height="300" Classes="BorderStyle">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="0.5*"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Grid.ColumnSpan="2" x:Name="WinnerText"
+                       Text="WINNER TEXT"
+                       Classes="TextStyle"></TextBlock>
+            <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="ReasonText"
+                       Text="REASON TEXT"
+                       Classes="TextStyle"
+                       FontSize="16"></TextBlock>
+            
+            <Button Grid.Row="2"
+                    Content="RESTART"
+                    Classes="ButtonStyle"
+                    Width="100"
+                    Height="30"
+                    Click="Restart_Click"></Button>
+            
+            <Button Grid.Row="2"
+                    Grid.Column="1"
+                    Content="QUIT"
+                    Classes="ButtonStyle"
+                    Width="100"
+                    Height="50"
+                    Click="Quit_Click"></Button>
+        </Grid>        
+    </Border>
+</UserControl>

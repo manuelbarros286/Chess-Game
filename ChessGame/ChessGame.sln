@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessController", "ChessController\ChessController.csproj", "{7E5793B5-8C23-41AB-BC3F-72593ABE1645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChessInterface", "ChessInterface\ChessInterface.csproj", "{21BAF08B-5ACD-4DA8-AD82-77F701BF77D9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7E5793B5-8C23-41AB-BC3F-72593ABE1645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E5793B5-8C23-41AB-BC3F-72593ABE1645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E5793B5-8C23-41AB-BC3F-72593ABE1645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E5793B5-8C23-41AB-BC3F-72593ABE1645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{21BAF08B-5ACD-4DA8-AD82-77F701BF77D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{21BAF08B-5ACD-4DA8-AD82-77F701BF77D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{21BAF08B-5ACD-4DA8-AD82-77F701BF77D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{21BAF08B-5ACD-4DA8-AD82-77F701BF77D9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
