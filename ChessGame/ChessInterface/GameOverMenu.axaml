@@ -5,7 +5,7 @@
              mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
              x:Class="ChessInterface.GameOverMenu">
 
-    <Border Width="275" Height="125" Styles="{StaticResource BorderStyle}">
+    <Border Width="450" Height="300" Classes="BorderStyle">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*"></RowDefinition>
@@ -20,25 +20,25 @@
             
             <TextBlock Grid.ColumnSpan="2" x:Name="WinnerText"
                        Text="WINNER TEXT"
-                       Styles="{StaticResource TextStyle}"></TextBlock>
+                       Classes="TextStyle"></TextBlock>
             <TextBlock Grid.Row="1" Grid.ColumnSpan="2" x:Name="ReasonText"
                        Text="REASON TEXT"
-                       Styles="{StaticResource TextStyle}"
+                       Classes="TextStyle"
                        FontSize="16"></TextBlock>
             
             <Button Grid.Row="2"
                     Content="RESTART"
-                    Styles="{StaticResource ButtonStyle}"
-                    Width="80"
+                    Classes="ButtonStyle"
+                    Width="100"
                     Height="30"
                     Click="Restart_Click"></Button>
             
             <Button Grid.Row="2"
                     Grid.Column="1"
                     Content="QUIT"
-                    Styles="{StaticResource ButtonStyle}"
-                    Width="80"
-                    Height="30"
+                    Classes="ButtonStyle"
+                    Width="100"
+                    Height="50"
                     Click="Quit_Click"></Button>
         </Grid>        
     </Border>

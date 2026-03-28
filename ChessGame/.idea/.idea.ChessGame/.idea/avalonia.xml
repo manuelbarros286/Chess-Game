@@ -5,6 +5,7 @@
       <map>
         <entry key="ChessInterface/App.axaml" value="ChessInterface/ChessInterface.csproj" />
         <entry key="ChessInterface/GameOverMenu.axaml" value="ChessInterface/ChessInterface.csproj" />
+        <entry key="ChessInterface/PromotionMenu.axaml" value="ChessInterface/ChessInterface.csproj" />
         <entry key="ChessInterface/Views/MainWindow.axaml" value="ChessInterface/ChessInterface.csproj" />
       </map>
     </option>

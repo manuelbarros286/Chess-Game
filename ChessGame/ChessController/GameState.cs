@@ -17,7 +17,7 @@ public class GameState
 
     public IEnumerable<Move> LegalMovesForPiece(Position pos)
     {
-        if (Board.isEmpty(pos) || Board[pos].Colour != CurrentPlayer)
+        if (Board.IsEmpty(pos) || Board[pos].Colour != CurrentPlayer)
         {
             return Enumerable.Empty<Move>();
         }

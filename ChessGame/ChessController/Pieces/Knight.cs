@@ -32,7 +32,7 @@ public class Knight : Piece
 
     private IEnumerable<Position> MovePositions(Position from, Board board)
     {
-        return PotentialMoves(from).Where(pos => Board.isInside(pos) && (board.isEmpty(pos) || board[pos].Colour != Colour));
+        return PotentialMoves(from).Where(pos => Board.IsInside(pos) && (board.IsEmpty(pos) || board[pos].Colour != Colour));
     }
 
     public override IEnumerable<Move> GetMoves(Position from, Board board)

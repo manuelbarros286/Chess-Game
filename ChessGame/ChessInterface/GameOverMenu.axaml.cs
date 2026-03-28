@@ -10,16 +10,21 @@ namespace ChessInterface;
 public partial class GameOverMenu : UserControl
 {
 
-    public event Action<Option> OptionSelected;
-    public GameOverMenu(GameState gameState)
+    public event Action<Option>? OptionSelected;
+
+    public GameOverMenu()
     {
         InitializeComponent();
+        
+    }
+    public GameOverMenu(GameState gameState) : this()
+    {
         Result result = gameState.Result;
-        WinnerText.Text = getWinnerText(result.Winner);
+        WinnerText.Text = GetWinnerText(result.Winner);
         ReasonText.Text = GetReasonText(result.Reason, gameState.CurrentPlayer);
     }
     
-    private static String getWinnerText(Player winner)
+    private static String GetWinnerText(Player winner)
     {
         return winner switch
         {
