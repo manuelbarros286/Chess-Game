@@ -21,7 +21,39 @@ public class King : Piece
     {
         Colour = colour;
     }
+
+    private static bool IsUnmovedRook(Position position, Board board)
+    {
+        if (board.IsEmpty(position))
+        {
+            return false;
+        }
+        Piece piece = board[position];
+        return piece.Type == PieceType.Rook && !piece.HasMoved;
+    }
+
+    private static bool AllEmpty(IEnumerable<Position> positions, Board board)
+    {
+        return positions.All(pos => board.IsEmpty(pos));
+    }
     
+    private bool CanCastleKingside(Position from, Board board)
+    {
+        if(HasMoved) return false;
+        
+        Position rookPosition = new Position(from.Row, 7);
+        Position[] betweenPositions = new Position[]{ new Position(from.Row, 5) , new Position(from.Row, 6) };
+        return IsUnmovedRook(rookPosition, board) && AllEmpty(betweenPositions, board);
+    }
+    
+    private bool CanCastleQueenside(Position from, Board board)
+    {
+        if(HasMoved) return false;
+        
+        Position rookPosition = new Position(from.Row, 0);
+        Position[] betweenPositions = new Position[]{ new Position(from.Row, 1) , new Position(from.Row, 2), new Position(from.Row, 3) };
+        return IsUnmovedRook(rookPosition, board) && AllEmpty(betweenPositions, board);
+    }
     
     public override Piece Copy()
     {
@@ -47,6 +79,15 @@ public class King : Piece
         foreach(Position to in MovePositions(from, board))
         {
             yield return new NormalMove(from, to);
+        }
+        
+        if (CanCastleQueenside(from, board))
+        {
+            yield return new Castle(MoveType.CastleQS, from);
+        }
+        if (CanCastleKingside(from, board))
+        {
+            yield return new Castle(MoveType.CastleKS, from);
         }
     }
 
