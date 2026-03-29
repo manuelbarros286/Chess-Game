@@ -62,6 +62,9 @@ public class GameState
             {
                 Result = Result.Draw(GameEndReason.Stalemate);
             }
+        } else if (Board.InsufficientMaterial())
+        {
+            Result = Result.Draw(GameEndReason.InsufficientMaterial);
         }
     }
     
