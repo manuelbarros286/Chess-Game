@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace ChessController;
 // abstract since it a base class for all pieces
 public abstract class Piece
