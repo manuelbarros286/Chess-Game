@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace ChessController;
 
 public class Board
@@ -120,6 +123,57 @@ public class Board
             copy[pos] = this[pos].Copy();
         }
         return copy;
+    }
+
+    public Counting CountPieces()
+    {
+        Counting counting = new Counting();
+        foreach (Position pos in GetAllPiecePositions())
+        {
+            Piece piece = this[pos];
+            counting.Increment(piece.Colour, piece.Type);
+        }
+
+        return counting;
+    }
+
+    public bool InsufficientMaterial()
+    {
+        Counting counting = CountPieces();
+        return isKingVKing(counting) || IsKingBishopVKing(counting) || IsKingKnightVKing(counting) || IsKingBishopVKingBishop(counting);
+    }
+    //king vs king scenario
+    private static bool isKingVKing(Counting counting)
+    {
+        return counting.TotalCount == 2;
+    }
+    
+    //king vs king and bishop/knight scenario
+    private static bool IsKingBishopVKing(Counting counting)
+    {
+        return counting.TotalCount == 3 && (counting.White(PieceType.Bishop) == 1 || counting.Black(PieceType.Bishop) == 1);
+    }
+    
+    private static bool IsKingKnightVKing(Counting counting)
+    {
+        return counting.TotalCount == 3 && (counting.White(PieceType.Knight) == 1 || counting.Black(PieceType.Knight) == 1);
+    }
+
+    private bool IsKingBishopVKingBishop(Counting counting)
+    {
+        if(counting.TotalCount != 4) return false;
+        if (counting.White(PieceType.Bishop) != 1 || counting.Black(PieceType.Bishop) != 1) return false;
+        
+        //check if bishops are on the same colour square, if they are then it's a draw, if not then not a draw
+        Position wBishop = FindPiece(Player.White, PieceType.Bishop);
+        Position bBishop = FindPiece(Player.Black, PieceType.Bishop);
+        
+        return wBishop.SquareColour() == bBishop.SquareColour();
+    }
+
+    private Position FindPiece(Player colour, PieceType type)
+    {
+        return GetAllPiecePositionsForPlayer(colour).First(pos => this[pos].Type == type);
     }
 
 }

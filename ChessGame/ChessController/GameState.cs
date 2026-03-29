@@ -1,3 +1,6 @@
+using System.Collections.Generic;
+using System.Linq;
+
 namespace ChessController;
 
 public class GameState
@@ -59,6 +62,9 @@ public class GameState
             {
                 Result = Result.Draw(GameEndReason.Stalemate);
             }
+        } else if (Board.InsufficientMaterial())
+        {
+            Result = Result.Draw(GameEndReason.InsufficientMaterial);
         }
     }
     
