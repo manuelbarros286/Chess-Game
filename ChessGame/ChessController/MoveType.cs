@@ -5,7 +5,7 @@ public enum MoveType
     Normal,
     CastleKS,
     CastleQS,
-    DoublePawnPush,
+    DoublePawn,
     EnPassant,
     PawnPromotion
 }

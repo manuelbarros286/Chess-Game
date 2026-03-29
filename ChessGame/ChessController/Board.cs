@@ -4,6 +4,13 @@ public class Board
 {
     //array to hold the pieces on the board
     private readonly Piece[,] pieces= new Piece[8, 8];
+
+    private readonly Dictionary<Player, Position> pawnSkipPositions = new Dictionary<Player, Position>
+    {
+        { Player.White, null },
+        { Player.Black, null }
+    };
+    
     //provide access through an indexer
     public Piece this[int row, int col]
     {
@@ -16,6 +23,16 @@ public class Board
         get { return this[position.Row, position.Column]; }
         set { this[position.Row, position.Column] = value; }
         
+    }
+    
+    public Position GetPawnSkipPosition(Player player)
+    {
+        return pawnSkipPositions[player];
+    }
+    
+    public void SetPawnSkipPosition(Player player, Position position)
+    {
+        pawnSkipPositions[player] = position;
     }
 
     public static Board Initial()
