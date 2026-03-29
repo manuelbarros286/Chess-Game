@@ -13,11 +13,17 @@ public class GameState
     public Result Result { get; private set; } = null;
     
     private int noCaptureOrPawnMoveCount = 0; //for 50-move rule
+    private String stateString;
+    
+    private readonly Dictionary<string, int> stateHistory = new Dictionary<string, int>();
 
     public GameState(Player player, Board board)
     {
         CurrentPlayer = player;
         Board = board;
+        
+        stateString = new StateString(CurrentPlayer, board).ToString();
+        stateHistory[stateString] = 1;
     }
 
     public IEnumerable<Move> LegalMovesForPiece(Position pos)
@@ -41,12 +47,14 @@ public class GameState
         if (captureOrPawn)
         {
             noCaptureOrPawnMoveCount = 0;
+            stateHistory.Clear();
         }
         else
         {
             noCaptureOrPawnMoveCount++;
         }
         CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
+        UpdateStateString();
         CheckForGameEnd();
     }
     
@@ -80,6 +88,10 @@ public class GameState
         {
             Result = Result.Draw(GameEndReason.FiftyMoveRule);
         }
+        else if (ThreefoldRepetition())
+        {
+            Result = Result.Draw(GameEndReason.ThreefoldRepetition);
+        }
     }
     
     public bool IsGameOver()
@@ -91,5 +103,27 @@ public class GameState
     {
         int fullMoves = noCaptureOrPawnMoveCount / 2;
         return fullMoves >= 50;
+    }
+    
+    private void UpdateStateString()
+    {
+        stateString = new StateString(CurrentPlayer, Board).ToString();
+        if (stateHistory.ContainsKey(stateString))
+        {
+            stateHistory[stateString]++;
+            if (stateHistory[stateString] >= 3)
+            {
+                Result = Result.Draw(GameEndReason.ThreefoldRepetition);
+            }
+        }
+        else
+        {
+            stateHistory[stateString] = 1;
+        }
+    }
+
+    private bool ThreefoldRepetition()
+    {
+        return stateHistory[stateString] >= 3;
     }
 }
