@@ -14,9 +14,11 @@ public class EnPassant : Move
         capturedPawnPosition = new Position(from.Row, to.Column);
     }
     
-    public override void Execute(Board board)
+    public override bool Execute(Board board)
     {
         new NormalMove(FromPosition, ToPosition).Execute(board);
         board[capturedPawnPosition] = null;
+        //for the fifty-move rule
+        return true;
     }
 }

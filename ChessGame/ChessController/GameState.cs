@@ -11,6 +11,8 @@ public class GameState
     public Board Board { get; }
     public Player CurrentPlayer { get; private set; }
     public Result Result { get; private set; } = null;
+    
+    private int noCaptureOrPawnMoveCount = 0; //for 50-move rule
 
     public GameState(Player player, Board board)
     {
@@ -35,7 +37,15 @@ public class GameState
     public void MakeMove(Move move)
     {
         Board.SetPawnSkipPosition(CurrentPlayer, null);
-        move.Execute(Board);
+        bool captureOrPawn = move.Execute(Board);
+        if (captureOrPawn)
+        {
+            noCaptureOrPawnMoveCount = 0;
+        }
+        else
+        {
+            noCaptureOrPawnMoveCount++;
+        }
         CurrentPlayer = CurrentPlayer == Player.White ? Player.Black : Player.White;
         CheckForGameEnd();
     }
@@ -66,10 +76,20 @@ public class GameState
         {
             Result = Result.Draw(GameEndReason.InsufficientMaterial);
         }
+        else if (FiftyMoveRule())
+        {
+            Result = Result.Draw(GameEndReason.FiftyMoveRule);
+        }
     }
     
     public bool IsGameOver()
     {
         return Result != null;
+    }
+    
+    private bool FiftyMoveRule()
+    {
+        int fullMoves = noCaptureOrPawnMoveCount / 2;
+        return fullMoves >= 50;
     }
 }

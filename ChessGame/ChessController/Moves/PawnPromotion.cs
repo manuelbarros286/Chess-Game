@@ -31,12 +31,15 @@ public class PawnPromotion : Move
         };
     }
 
-    public override void Execute(Board board)
+    public override bool Execute(Board board)
     {
         Piece pawn = board[FromPosition];
         board[FromPosition] = null;
         Piece promotionPiece = CreatePromotionPiece(pawn.Colour);
         promotionPiece.HasMoved = true;
         board[ToPosition] = promotionPiece;
+        
+        //for the fifty-move rule
+        return true;
     }
 }

@@ -15,10 +15,13 @@ public class DoublePawn : Move
         
     }
 
-    public override void Execute(Board board)
+    public override bool Execute(Board board)
     {
         Player player = board[FromPosition].Colour;
         board.SetPawnSkipPosition(player, skippedPosition);
         new NormalMove(FromPosition, ToPosition).Execute(board);
+        
+        //for the fifty-move rule
+        return true;
     }
 }
