@@ -1,12 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
         <OutputType>Exe</OutputType>
         <RootNamespace>ChessController.Tests</RootNamespace>
-        <TargetFramework>net10.0</TargetFramework>
-
+        <EnableMicrosoftTestingPlatformExtensions>true</EnableMicrosoftTestingPlatformExtensions>
     </PropertyGroup>
 
     <ItemGroup>
@@ -14,19 +14,16 @@
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="altcover" Version="9.0.102" />
-        <PackageReference Include="Microsoft.CodeCoverage.MSBuild" Version="18.6.2" />
-        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="18.4.0" />
         <PackageReference Include="xunit.v3.mtp-v2" Version="3.2.0" />
-        <PackageReference Include="Microsoft.Testing.Extensions.CodeCoverage" Version="18.6.2" />
+        <PackageReference Include="coverlet.MTP" Version="1.0.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Pieces\" />
+        <Folder Include="Pieces\" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\ChessController\ChessController.csproj" />
+        <ProjectReference Include="..\ChessController\ChessController.csproj" />
     </ItemGroup>
 
 </Project>
